@@ -1,4 +1,4 @@
-export default function Email({email, toggleRead, toggleStar}) {
+export default function Email({email, toggleRead, toggleStar, handleEmailClick}) {
     return (
         <li className={`email ${email.read ? "read" : "unread"}`}>
             <div className="select">
@@ -17,8 +17,8 @@ export default function Email({email, toggleRead, toggleStar}) {
                     onChange={() => toggleStar(email)}
                 />
             </div>
-            <div className="sender">{email.sender}</div>
-            <div className="title">{email.title}</div>
+            <div className="sender" onClick={()=>handleEmailClick(email)}>{email.sender}</div>
+            <div className="title" onClick={()=>handleEmailClick(email)}>{email.title}</div>
         </li>
     )
 }
